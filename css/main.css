@@ -1,0 +1,393 @@
+html, body {
+  padding     : 0;
+  margin      : 0;
+  width       : 100%;
+  height      : 100%;
+  font-family : Segoe UI, Helvetica, sans-serif;
+  overflow    : hidden;
+  color       : #444;
+}
+
+.esriRTL label {
+  /*Example of a rule that will be applied if the app is viewed in a browser with a RTL locale like Hebrew or Arabic.*/
+}
+
+/* MAIN APP MESSAGES =========================================================== */
+.app-error .loading-message {
+  background  : url(../images/error.png) no-repeat top center;
+  padding-top : 60px;
+  width       : 100%;
+  position    : absolute;
+  z-index     : 2;
+  top         : 40%;
+  left        : 0;
+  text-align  : center;
+}
+
+.message-node {
+  position         : absolute;
+  top              : 30%;
+  z-index          : 99;
+  width            : 100%;
+  padding          : 40px;
+  text-align       : center;
+  font-size        : 2em;
+  background-color : rgba(51, 102, 153, 0.8);
+}
+
+.message-node .small-text {
+  padding        : 5px !important;
+  font-size      : smaller !important;
+  display        : table-cell;
+  vertical-align : middle;
+}
+
+.message-node span {
+  color       : #fff;
+  text-shadow : 1px 1px 0 #222;
+}
+
+.error-node span {
+  color : darkred;
+}
+
+/* MAIN APP MESSAGES =========================================================== */
+
+#main-container {
+  width  : 100%;
+  height : 100%;
+}
+
+#main-top-pane {
+  padding : 15px;
+}
+
+#app-title {
+  color       : #336699;
+  font-size   : large;
+  font-weight : bolder;
+}
+
+#app-sub-title {
+  color      : #666;
+  font-size  : smaller;
+  font-style : italic;
+  margin     : 0 30px;
+}
+
+.heart {
+  cursor           : pointer;
+  font-size        : 24px;
+  color            : rgba(167, 118, 119, 0.55);
+  animation        : beat .7s infinite alternate;
+  transform-origin : center;
+}
+
+.heart:hover {
+  animation-duration : .3s;
+}
+
+@keyframes beat {
+  to {
+    color     : red;
+    transform : scale(2.0);
+  }
+}
+
+#portaluser-section {
+  position : absolute;
+  top      : 10px;
+  right    : 10px;
+  height   : 100%;
+}
+
+.user-thumb {
+  height         : 46px;
+  border-radius  : 23px;
+  vertical-align : middle;
+}
+
+#main-right-pane {
+  width : 40%;
+}
+
+#main-left-pane {
+  width    : 20%;
+  overflow : hidden;
+}
+
+#group-toolbar,
+#totals-toolbar {
+  line-height : 2.2em;
+}
+
+.toolbar-label {
+  line-height : 2.2em;
+  font-weight : bolder;
+}
+
+.toolbar-right {
+  position       : absolute;
+  right          : 0;
+  top            : 0;
+  line-height    : 2.2em;
+  vertical-align : middle;
+}
+
+#items-top-pane {
+  overflow : hidden;
+}
+
+#group-list-node {
+  width : 100%;
+  /*border : none !important;*/
+}
+
+.dgrid {
+  height : 100% !important;
+  /*border : none !important;*/
+}
+
+.dgrid-no-data,
+.dgrid-loading {
+  color      : #ccc;
+  font-size  : 3em;
+  padding    : 2em;
+  text-align : center;
+}
+
+.dgrid-row {
+  border-bottom : solid 1px #eee;
+}
+
+.dgrid-cell {
+  height : 100%;
+  border : none !important;
+}
+
+.dgrid-highlight {
+  background-color : rgba(255, 255, 112, 0.75);
+}
+
+.group-thumb {
+  width          : 50px;
+  height         : 50px;
+  vertical-align : text-top;
+  margin         : 5px;
+}
+
+.group-node {
+  cursor   : pointer;
+  padding  : 5px;
+  position : relative;
+}
+
+.group-title a {
+  color       : #336699;
+  font-weight : bolder;
+}
+
+.group-owner-cell {
+  text-align : right !important;
+}
+
+.group-owner {
+  color      : #666;
+  font-size  : smaller;
+  font-style : italic;
+}
+
+.group-access {
+  font-size : smaller;
+}
+
+.field-hasError {
+  width          : 80px;
+  text-align     : center !important;
+  vertical-align : middle !important;
+}
+
+.hasError {
+  cursor          : pointer;
+  color           : red;
+  text-decoration : underline red;
+}
+
+.haveErrors {
+  color            : red;
+  background-color : yellow;
+}
+
+.recheck {
+  cursor          : pointer;
+  color           : #336699;
+  text-decoration : underline #336699;
+}
+
+.field-id {
+  width      : 300px;
+  text-align : center !important;
+}
+
+.field-title {
+  font-weight : bolder;
+}
+
+.field-owner {
+  width      : 160px;
+  text-align : right !important;
+}
+
+.field-type {
+  width      : 180px;
+  text-align : center !important;
+}
+
+.field-access {
+  border-right : solid 1px #ccc !important;
+}
+
+.field-access,
+.field-serviceOk,
+.field-detailsPageOk,
+.field-webMapOk,
+.field-webAppOk {
+  width          : 100px;
+  text-align     : center !important;
+  vertical-align : middle;
+}
+
+.status {
+  width      : 100%;
+  height     : 100%;
+  background : url(../images/error_gray.png) no-repeat center;
+}
+
+.statusUnknown {
+  background-image : url(../images/Minus32Checked.png);
+}
+
+.statusChecking {
+  background-image : url(../images/ajax-loader.gif);
+}
+
+.statusOk {
+  background-image : url(../images/DataReviewerLifecycleVerified32_d.png);
+}
+
+.statusError {
+  cursor           : pointer;
+  background-image : url(../images/GenericErrorStop32_d.png);
+}
+
+#main-bottom-pane {
+  margin  : 0 6px;
+  padding : 0 !important;
+  height  : 190px;
+}
+
+#totals-node {
+  text-align : center;
+}
+
+.info-node {
+  float         : left;
+  width         : 25%;
+  height        : 100%;
+  border-bottom : solid 1px #ddd;
+}
+
+.total-label {
+  text-align      : center;
+  font-size       : larger;
+  font-weight     : bolder;
+  text-decoration : underline;
+}
+
+.total-name {
+  text-align : right;
+  width      : 50%;
+}
+
+.total-value {
+  /*color       : #336699;*/
+  text-align  : left;
+  width       : 50%;
+  font-weight : bolder;
+}
+
+.total-value span {
+  padding : 0 3px;
+}
+
+.group-lastChecked-cell {
+  width : 100%;
+}
+
+.group-lastChecked {
+  text-align : right;
+  color      : #336699;
+  font-size  : x-small;
+  font-style : italic;
+}
+
+.error-node {
+  color : darkred;
+}
+
+.access {
+  color : darkred;
+}
+
+.access-public {
+  color : #69aa68;
+}
+
+.checking {
+  color : orange;
+}
+
+.next-query {
+  margin-left : 15px;
+  font-size   : smaller;
+}
+
+.next-start {
+  cursor          : pointer;
+  color           : #336699;
+  text-decoration : underline #336699;
+}
+
+.next-label {
+  cursor          : default !important;
+  color           : #444 !important;
+  text-decoration : none !important;
+}
+
+#sort-options {
+  /*text-align : right;*/
+}
+
+#sort-options * {
+  outline : none;
+}
+
+.iconSortDirection {
+  width      : 24px;
+  height     : 24px;
+  background : url(../images/GenericSortDescending32.png) no-repeat center / contain;
+}
+
+.dijitToggleButtonChecked .iconSortDirection {
+  background-image : url(../images/GenericSortAscending32.png) !important;
+}
+
+.iconClearLastSelected {
+  width      : 24px;
+  height     : 24px;
+  background : url(../images/ClearLastChecked.png) no-repeat center / contain;
+}
+
+.item-link {
+  color : #336699;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item Pulse Check</title>
+    <meta charset="utf-8">
+    <meta name="fragment" content="!">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" href="//js.arcgis.com/3.15/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="//js.arcgis.com/3.15/esri/css/esri.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript">
+      var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+      var dojoConfig = {
+        async: true,
+        parseOnLoad: true,
+        packages: [{
+          name: "application",
+          location: package_path + '/js'
+        }, {
+          name: "config",
+          location: package_path + '/config'
+        }, {
+          name: "arcgis_templates",
+          location: package_path + '/..'
+        }],
+        preloadImages: [
+          "./images/ajax-loader.gif",
+          "./images/Minus32Checked.png",
+          "./images/DataReviewerLifecycleVerified32_d.png",
+          "./images/GenericErrorStop32_d.png"
+        ]
+      };
+    </script>
+    <script type="text/javascript" src="//js.arcgis.com/3.15/"></script>
+    <script type="text/javascript">
+      require([
+        "dojo/ready",
+        "dojo/_base/lang",
+        "config/templateConfig",
+        "application/template",
+        "application/main",
+        "dijit/layout/BorderContainer",
+        "dijit/layout/ContentPane",
+        "dijit/Toolbar",
+        "dijit/form/Select"
+      ], function (ready, lang, templateConfig, Template, Main) {
+
+        Main.displayMessage("Welcome...");
+
+        var myTemplate = new Template(templateConfig);
+        myTemplate.startup().then(function (config) {
+          ready(lang.hitch(this, function (evt) {
+            var myApp = new Main(config);
+            myApp.startup();
+          }));
+        }, Main.displayMessage);
+
+      });
+    </script>
+  </head>
+  <body class="claro">
+    <div id="main-container" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:false">
+      <div id="main-top-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+        <table id="app-title-section">
+          <tr>
+            <td>
+              <div id="heart-node" class="heart">&#x2665;</div>
+            </td>
+            <td>
+              <sapn id="app-title">Item Pulse Check</sapn>
+              <span id="app-sub-title">Discover, Verify, Act!</span>
+            </td>
+          </tr>
+        </table>
+        <table id="portaluser-section"></table>
+      </div>
+      <div id="main-left-pane" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="region:'left',gutters:false">
+        <div id="group-toolbar" data-dojo-type="dijit/Toolbar" data-dojo-props="region:'top'">
+          <label class="toolbar-label">GROUPS</label>
+          <div class="toolbar-right">
+            <span style="margin:3px -40px !important;position:absolute;">Sort:</span>
+            <select id="sort-select" data-dojo-type="dijit/form/Select" data-dojo-props="style:{width:'125px'}">
+              <option value="created" selected="selected">Created</option>
+              <option value="title">Title</option>
+            </select>
+
+            <div id="sort-direction" data-dojo-type="dijit/form/ToggleButton" data-dojo-props="iconClass:'iconSortDirection',title:'Sort Direction'"></div>
+            <span data-dojo-type="dijit/ToolbarSeparator"></span>
+            <div id="clear-last-checked-btn" data-dojo-type="dijit/form/Button" data-dojo-props="iconClass:'iconClearLastSelected',title:'Clear last checked status...'"></div>
+          </div>
+        </div>
+        <div id="group-list-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+          <div id="group-list-node"></div>
+        </div>
+      </div>
+      <div id="main-center-pane" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="region:'center',gutters:false">
+        <div id="items-list-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+          <div id="items-list-node"></div>
+        </div>
+        <div id="main-bottom-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top',splitter:true">
+          <div id="totals-toolbar" data-dojo-type="dijit/Toolbar">
+            <div id="totals-node" class="toolbar-label"></div>
+            <div class="toolbar-right">
+              <span> OK = </span>
+              <img src="./images/DataReviewerLifecycleVerified32_d.png" style="vertical-align:middle;height:24px;">
+              <span> Error = </span>
+              <img src="./images/GenericErrorStop32_d.png" style="vertical-align:middle;height:24px;">
+              <span> Not Applicable = </span>
+              <img src="./images/Minus32Checked.png" style="vertical-align:middle;height:24px;">
+            </div>
+          </div>
+          <div id="infos-node">
+            <table class="info-node" id="detailsPage-info-node"></table>
+            <table class="info-node" id="webApp-info-node"></table>
+            <table class="info-node" id="webMap-info-node"></table>
+            <table class="info-node" id="service-info-node"></table>
+          </div>
+        </div>
+      </div>
+      <!--<div id="main-right-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'"></div>-->
+    </div>
+  </body>
+</html>
